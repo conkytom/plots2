@@ -4,11 +4,11 @@
       <div class="navbar-text pull-left">
       <% if answer.author %>
         <% if answer.author.user && answer.author.user.photo_file_name %>
-        <img style="width:32px;margin-right:6px;" class="img-circle" src="<%= answer.author.user.photo_path(:thumb) %>" />
+          <img style="width:32px;margin-right:6px;" class="img-circle" src="<%= answer.author.user.photo_path(:thumb) %>" />
         <% else %>
-        <div style="vertical-align:middle;display:inline-block;height:32px;width:32px;margin-right:6px;background:#ccc;" class="img-circle"></div>
+          <div style="vertical-align:middle;display:inline-block;height:32px;width:32px;margin-right:6px;background:#ccc;" class="img-circle"></div>
         <% end %>
-        <a href="/profile/<%= answer.author.name %>"><%= answer.author.name %></a>
+          <a href="/profile/<%= answer.author.name %>"><%= answer.author.name %></a>
       <% end %>
         <span class="hidden-xs">answered</span>
         <a style="color:#aaa;" href="#a<%= answer.id %>"><%= time_ago_in_words(answer.created_at) %> ago</a>
@@ -18,7 +18,7 @@
           <i class="fa fa-flag"></i>
         </a>
         <% if current_user && answer.uid == current_user.uid %>
-        <a class="btn btn-default btn-sm" href="javascript:void(0)" onClick="$('#c<%= answer.id %>edit').toggle();$('#c<%= answer.id %>show').toggle();setInit(<%= answer.id %>);"><i class="fa fa-pencil"></i></a>
+          <a class="btn btn-default btn-sm" href="javascript:void(0)" onClick="$('#c<%= answer.id %>edit').toggle();$('#c<%= answer.id %>show').toggle();setInit(<%= answer.id %>);"><i class="fa fa-pencil"></i></a>
         <% end %>
 
         <% if current_user && (current_user.role == "admin" || current_user.role == "moderator" || answer.uid == current_user.uid || answer.node.uid == current_user.uid) %>
